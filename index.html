@@ -25,36 +25,6 @@
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="www.kcloze.com">blog
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li> 
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-         -->
     </nav>
 
     <main role="main">
@@ -65,39 +35,77 @@
                 <p><img class="" src="logo.png" alt="Card image cap"></p>
                 <p></p>
                 <h2>基于swoole的job调度组件，类似gearman的分布式任务处理系统</h2>
+                <h2>适合各种框架，动态多进程消费队列，让后端耗性能的服务更稳定更快</h2>
                 <p></p>
                 <p>
-                    <a class="btn btn-primary btn-lg" href="https://github.com/kcloze/swoole-jobs" role="button">Github &raquo;</a>
+                    <a class="btn btn-success btn-lg" href="https://github.com/kcloze/swoole-jobs" role="button">Github &raquo;</a>
                     <a class="btn btn-primary btn-lg" href="http://www.kcloze.com/archives/1259" role="button">文档 &raquo;</a>
                 </p>
             </div>
         </div>
 
+
+        <div class="container">
+            <div class="row">
+                <h2>特性：</h2>
+            </div>
+            <hr>
+            <div class="row">
+                
+                <div class="col-sm-4">
+                    <h4>支持多种队列</h4>
+                    <p>基于swoole的job调度组件；，类似gearman的分布式任务处理系统；</p>
+                    <p>redis/rabbitmq/zeromq等任何一种做队列消息存储(目前只实现redis/rabbitmq)；</p>
+                    <p>利用swoole的process实现多进程管理，进程个数可配置，worker进程退出后会自动拉起；</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>动态子进程</h3>
+                    <p>子进程循环次数可配置，防止业务代码内存泄漏；默认stop命令会等待子进程平滑退出；</p>
+                    <p>根据队列积压情况，子进程动态启动进程数，最大最小子进程个数可配置；</p>
+                    <p>每个topic启动对应数量的子进程，杜绝不同topic之间相互影响;</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>支持各种框架</h3>
+                    <p>支持composer，可以跟任意框架集成；</p>
+                    <p><a href="https://github.com/kcloze/swoole-jobs-yii2">整合yii2和swoole-jobs；</a></p>
+                    <p>日志文件自动切割，默认最大100M，最多5个日志文件，防止日志刷满磁盘；</p>
+                </div>
+            </div>
+        
+        </div>
         <div class="container">
             <!-- Example row of columns -->
             <div class="row">
                 <div class="col-md-16">
-                    <h2>架构图</h2>
+                    <h2>架构图：</h2>
+                    <hr>
                     <p>
                         <img class="img-fluid" src="https://raw.githubusercontent.com/kcloze/swoole-jobs/master/jobs-archi.png" alt="">
                     </p>
-  
+        
                 </div>
-               
+        
             </div>
+        </div>
+
+        <div class="container">
             <div class="row">
-                <div class="col-md-16">
-                    <h2>特性</h2>
+                
+                <div>
+                    <h2>安装：</h2>
+                    <div  class="col-md-16">
+                    <figure class="highlight">
+                    <pre >
+                    <code class="" data-lang="">
+git clone https://github.com/kcloze/swoole-jobs.git
+cd swoole-jobs
+composer install
+                    </code>
+                    </pre>
+                    </figure>
+                    </div>
+                   
                     
-                        <p>基于swoole的job调度组件；，类似gearman的分布式任务处理系统；</p>
-                        <p>redis/rabbitmq/zeromq等任何一种做队列消息存储(目前只实现redis/rabbitmq)；</p>
-                        <p>利用swoole的process实现多进程管理，进程个数可配置，worker进程退出后会自动拉起；</p>
-                        <p>子进程循环次数可配置，防止业务代码内存泄漏；默认stop命令会等待子进程平滑退出；</p>
-                        <p>支持topic特性，不同的job绑定不同的topic；</p>
-                        <p>每个topic启动对应数量的子进程，杜绝不同topic之间相互影响;</p>
-                        <p>根据队列积压情况，子进程动态启动进程数，最大子进程个数可配置；</p>
-                        <p>支持composer，可以跟任意框架集成；</p>
-                        <p>日志文件自动切割，默认最大100M，最多5个日志文件，防止日志刷满磁盘；</p>
 
                 </div>
             </div>
@@ -108,9 +116,15 @@
 
     </main>
 
-    <footer class="container">
-        <p>&copy; Company 2017</p>
-    </footer>
+    <div class="container">
+        <div class="row footer-bottom">
+            <ul class="list-inline text-center footer-menu">
+                <li>Copyright © 2017 Swoole-jobs 版权所有，并保留所有权利</li>
+            </ul>
+            <ul class="list-inline text-center swoft-version">
+                <li></li>
+            </ul>
+        </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -118,7 +132,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
 </body>
 
