@@ -35,11 +35,12 @@
                 <p><img class="" src="logo.png" alt="Card image cap"></p>
                 <p></p>
                 <h2>基于swoole的job调度组件，类似gearman的分布式任务处理系统</h2>
-                <h2>适合各种框架，动态多进程消费队列，让后端耗性能的服务更稳定更快速</h2>
+                <h2>适合各种PHP框架，动态多进程消费队列，加速后端耗时服务</h2>
                 <p></p>
                 <p>
-                    <a class="btn btn-success btn-lg" href="https://github.com/kcloze/swoole-jobs" role="button">Github &raquo;</a>
-                    <a class="btn btn-primary btn-lg" href="http://www.kcloze.com/archives/1259" role="button">文档 &raquo;</a>
+                    <a class="btn btn-success btn-lg" href="https://github.com/kcloze/swoole-jobs" role="button">Github &raquo;&raquo;</a>&nbsp;&nbsp;
+                    <a class="btn btn-primary btn-lg" href="http://www.kcloze.com/archives/1259" role="button">文档 &raquo;&raquo;</a>&nbsp;&nbsp;
+                    <a class="btn btn-info btn-lg" href="http://www.kcloze.com/archives/1259" role="button">V2.3.0 &raquo;&raquo;</a>&nbsp;&nbsp;
                 </p>
             </div>
         </div>
@@ -50,26 +51,27 @@
                 <h2>特性：</h2>
                 <hr>
             </div>
-            
+            <hr>
             <div class="row">
                 
                 <div class="col-sm-4">
-                    <h4>支持多种队列</h4>
-                    <p>基于swoole的job调度组件；，类似gearman的分布式任务处理系统；</p>
-                    <p>redis/rabbitmq/zeromq等任何一种做队列消息存储(目前只实现redis/rabbitmq)；</p>
-                    <p>利用swoole的process实现多进程管理，进程个数可配置，worker进程退出后会自动拉起；</p>
+                    <h4>1.支持多种队列</h4>
+                    <li>redis/rabbitmq/zeromq等任何一种做队列消息存储(目前只实现redis/rabbitmq)；</li>
+                    <li>rabbitmq支持延迟队列/优先队列/过期队列等特性；</li>
+                    <li>代码封装简单明了，开箱即用</li>
+
                 </div>
                 <div class="col-sm-4">
-                    <h3>动态子进程</h3>
-                    <p>子进程循环次数可配置，防止业务代码内存泄漏；默认stop命令会等待子进程平滑退出；</p>
-                    <p>根据队列积压情况，子进程动态启动进程数，最大最小子进程个数可配置；</p>
-                    <p>每个topic启动对应数量的子进程，杜绝不同topic之间相互影响;</p>
+                    <h3>2.动态子进程</h3>
+                    <li>子进程循环次数可配置，防止业务代码内存泄漏；默认stop命令会等待子进程平滑退出；</li>
+                    <li>根据队列积压情况，子进程动态启动进程数，最大最小子进程个数可配置；</li>
+                    <li>每个topic启动对应数量的子进程，杜绝不同topic之间相互影响;</li>
                 </div>
                 <div class="col-sm-4">
-                    <h3>支持各种框架</h3>
-                    <p>支持composer，可以跟任意框架集成；</p>
-                    <p><a href="https://github.com/kcloze/swoole-jobs-yii2">整合yii2和swoole-jobs；</a></p>
-                    <p>日志文件自动切割，默认最大100M，最多5个日志文件，防止日志刷满磁盘；</p>
+                    <h3>3.支持各种PHP框架</h3>
+                    <li>支持composer，可以跟任意框架集成；</li>
+                    <li><a href="https://github.com/kcloze/swoole-jobs-yii2">整合yii2和swoole-jobs；</a></li>
+                    <li>日志文件自动切割，默认最大100M，最多5个日志文件，防止日志刷满磁盘；</li>
                 </div>
             </div>
         
@@ -88,7 +90,7 @@
         
             </div>
         </div>
-
+        
         <div class="container">
          
                 
@@ -110,6 +112,22 @@ composer install
             </div>
 
         </div>
+
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="col-md-16">
+                    <h2>运行状态：</h2>
+                    <hr>
+                    <p>
+                        <img class="img-fluid" src="https://raw.githubusercontent.com/kcloze/swoole-jobs/master/demo.png" alt="">
+                    </p>
+        
+                </div>
+        
+            </div>
+        </div>
+
         <!-- /container -->
         <div class="container">
             <div class="row">
